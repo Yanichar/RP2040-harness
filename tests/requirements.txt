@@ -1,0 +1,7 @@
+# Test-time dependencies for the bench tooling in tests/.
+#
+# The tooling itself is STDLIB-ONLY on purpose (la_lib.py, analyzer.py,
+# measure.py, pinmap_scan.py import nothing from PyPI), so captures can be
+# analysed with any Python and nothing has to be installed on the bench.
+# pytest is needed only to run the test suite.
+pytest>=8

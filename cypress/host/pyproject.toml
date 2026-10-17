@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "fx2-harness"
+version = "0.1.0"
+description = "PC-side control of a Cypress FX2LP (CY7C68013A) 24-line harness speaking the same wire protocol v1.0 as the RP2040 harness"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "RP2040 Harness project" }]
+keywords = ["cypress", "fx2lp", "cy7c68013a", "usb", "pyusb", "libusb", "harness"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: POSIX :: Linux",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Embedded Systems",
+]
+dependencies = [
+    # The codec, the Transport ABC, the Harness API and the errors all come
+    # from the RP2040 project -- this package only supplies a Cypress
+    # transport, loader and CLI on top of them.
+    "rp2040-harness>=0.1.0",
+    "pyusb>=1.2",
+    "libusb-package>=1.0.26",
+]
+
+[project.optional-dependencies]
+test = ["pytest>=7"]
+
+[project.scripts]
+fx2-harness = "fx2_harness.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+zip-safe = false
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"

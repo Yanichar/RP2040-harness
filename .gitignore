@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+
+# Firmware build output
+firmware/build/
+
+# Captures and measured artifacts (large, machine specific)
+captures/
+*.lac
+*.tcs
+
+# Editors / OS
+.idea/
+.vscode/
+Thumbs.db

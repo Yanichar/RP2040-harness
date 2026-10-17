@@ -1,0 +1,9 @@
+# Generated build tree: fx2lib headers staged for SDCC 4.x, object files,
+# Intel HEX image, raw binary and the linker map.  `firmware/build.ps1`
+# recreates all of it.
+firmware/build/
+
+# Python
+__pycache__/
+*.egg-info/
+.pytest_cache/
